@@ -16,7 +16,7 @@ const Details = () => {
             <div className="flex flex-col items-center gap-2">
            <div className="flex font-semibold">
           {scrollOn && (
-            <CountUp start={0} end={400} delay={0} className="text-6xl max-md:text-2xl" />
+            <CountUp start={0} end={100} delay={0} className="text-6xl max-md:text-2xl" />
           )}
             <p className="text-6xl max-md:text-2xl">+</p>
         </div>  
@@ -26,7 +26,7 @@ const Details = () => {
         <div className="flex flex-col items-center gap-2">
         <div className="flex font-semibold">
           {scrollOn && (
-            <CountUp start={0} end={30} delay={0} className="text-6xl max-md:text-2xl" />
+            <CountUp start={0} end={25} delay={0} className="text-6xl max-md:text-2xl" />
           )}
             <p className="text-6xl max-md:text-2xl">+</p>
         </div>

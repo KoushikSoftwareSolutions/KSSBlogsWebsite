@@ -21,7 +21,7 @@ export const BlogDetail = () => {
     fetchData();
   }, [id]);
 
-  if (!blogData) return <div className='pt-20 text-center text-gray-500 h-screen flex justify-center items-center text-2xl'>Blog not found.</div>;
+  if (!blogData) return <div className='pt-20 text-center text-gray-500 h-screen flex justify-center items-center text-2xl'>{loading ? <Loading /> : "Blog Not Found"}</div>;
 
   const formatDateTime = (isoDate) => {
     const date = new Date(isoDate);

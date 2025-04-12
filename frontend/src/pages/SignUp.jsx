@@ -83,7 +83,6 @@ const SignUp = () => {
             BLOGS).
           </h1>
 
-          {/* Firstname */}
           <div className="flex gap-2 mt-4 px-4 py-3 items-center bg-sky-100 rounded-lg w-full">
             <MdOutlinePersonOutline className="size-6" />
             <input
@@ -95,7 +94,6 @@ const SignUp = () => {
             />
           </div>
 
-          {/* Lastname */}
           <div className="flex gap-2 mt-4 px-4 py-3 items-center bg-sky-100 rounded-lg w-full">
             <MdOutlinePersonOutline className="size-6" />
             <input
@@ -107,7 +105,6 @@ const SignUp = () => {
             />
           </div>
 
-          {/* Email */}
           <div className="flex gap-2 mt-4 px-4 py-3 items-center bg-sky-100 rounded-lg w-full">
             <MdOutlineMailOutline className="size-6" />
             <input
@@ -119,7 +116,6 @@ const SignUp = () => {
             />
           </div>
 
-          {/* Password */}
           <div className="flex gap-2 mt-4 px-4 py-3 items-center bg-sky-100 rounded-lg w-full">
             <MdLockOutline className="size-6" />
             <input
@@ -138,7 +134,6 @@ const SignUp = () => {
             </button>
           </div>
 
-          {/* Confirm Password */}
           <div className="w-full flex flex-col items-end">
             <div className="flex gap-2 mt-4 px-4 py-3 items-center bg-sky-100 rounded-lg w-full">
               <MdLockOutline className="size-6" />
@@ -155,7 +150,6 @@ const SignUp = () => {
             </h1>
           </div>
 
-          {/* Submit */}
           <button
             className="mt-4 bg-sky-300 px-6 py-2 rounded-lg font-medium cursor-pointer hover:bg-sky-900 focus:ring focus:ring-sky-300 transition-all duration-300 hover:text-white"
             onClick={registerUser}
@@ -163,7 +157,6 @@ const SignUp = () => {
             Get Started
           </button>
 
-          {/* Divider */}
           <div className="flex items-center my-6 w-full">
             <div className="flex-grow border-t-4 border-dotted border-gray-400"></div>
             <span className="px-4 text-gray-500 text-sm whitespace-nowrap font-medium">
@@ -172,10 +165,8 @@ const SignUp = () => {
             <div className="flex-grow border-t-4 border-dotted border-gray-400"></div>
           </div>
 
-          {/* Google */}
           <FcGoogle className="size-20 bg-sky-100 p-4 rounded-2xl cursor-pointer" />
 
-          {/* Login link */}
           <div className="flex mt-4 gap-1 items-center">
             <h1 className="font-light text-sm">Already have an account?</h1>
             <Link to="/login">

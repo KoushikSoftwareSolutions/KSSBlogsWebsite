@@ -32,6 +32,7 @@ const BlogCategory = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
+        setLoading(true); // <-- Add this line to show loading when category changes
         const response = await axios.get(`${API}/api/blog/category/${category}`);
         setBlog(response.data.blogs);
       } catch (error) {
@@ -41,7 +42,8 @@ const BlogCategory = () => {
       }
     };
     fetchData();
-  }, [category]); // Include category here
+  }, [category]);
+  
 
   const formatDateTime = (isoDate) => {
     const date = new Date(isoDate);
@@ -56,6 +58,7 @@ const BlogCategory = () => {
       timeZone: 'Asia/Kolkata'
     }).format(date);
   };
+  
   return (
     <div>
       {loading && <Loading />}

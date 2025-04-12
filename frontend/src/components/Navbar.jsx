@@ -28,8 +28,8 @@ const NavBar = () => {
         setLoading(false)
       } catch (err) {
         console.log("Error fetching user:", err);
-      } 
-      finally{
+      }
+      finally {
         setLoading(false)
       }
     };
@@ -40,7 +40,7 @@ const NavBar = () => {
     try {
       await axios.post(`${API}/api/user/logout`, null, {
         withCredentials: true,
-      });      
+      });
       setUser(null);
       window.location.reload();
     } catch (e) {
@@ -54,6 +54,7 @@ const NavBar = () => {
     { to: "/category/tech", label: "Tech" },
     { to: "/category/career", label: "Career" },
     { to: "/category/job", label: "Jobs" },
+    { to: "/category/product-design", label: "Product Design" },
   ];
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-gray-800 backdrop-blur-2xl">
@@ -62,25 +63,20 @@ const NavBar = () => {
           <img src={logo} alt="logo" width={120} />
         </Link>
 
-        {/* Animated Icon Button */}
         <button
           className="relative w-10 h-10 flex items-center justify-center bg-white p-2 text-lg rounded-lg md:hidden mr-6 overflow-hidden"
           onClick={() => setIsOpen(!isOpen)}
         >
-          {/* Hamburger icon */}
           <span
-            className={`absolute transition-all duration-300 ease-in-out ${
-              isOpen ? "opacity-0 scale-90" : "opacity-100 scale-100"
-            }`}
+            className={`absolute transition-all duration-300 ease-in-out ${isOpen ? "opacity-0 scale-90" : "opacity-100 scale-100"
+              }`}
           >
             <MdOutlineMenu />
           </span>
 
-          {/* Close icon */}
           <span
-            className={`absolute transition-all duration-300 ease-in-out ${
-              isOpen ? "opacity-100 scale-100" : "opacity-0 scale-90"
-            }`}
+            className={`absolute transition-all duration-300 ease-in-out ${isOpen ? "opacity-100 scale-100" : "opacity-0 scale-90"
+              }`}
           >
             <MdOutlineClose />
           </span>
@@ -92,11 +88,10 @@ const NavBar = () => {
               key={index}
               to={item.to}
               onClick={() => setActiveLink(item.to)}
-              className={`relative font-medium after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 hover:after:w-full after:bg-sky-300 after:transition-all ${
-                activeLink === item.to
+              className={`relative font-medium after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 hover:after:w-full after:bg-sky-300 after:transition-all ${activeLink === item.to
                   ? "text-white after:w-full"
                   : "text-gray-400 hover:text-white/70"
-              }`}
+                }`}
             >
               {item.label}
             </Link>
@@ -135,7 +130,6 @@ const NavBar = () => {
         </div>
       </div>
 
-      {/* Mobile menu dropdown */}
       {isOpen && (
         <div className="animate-slide-down md:hidden">
           <div className="flex flex-col gap-2 bg-white/10 backdrop-blur-3xl py-4 items-center">
@@ -147,15 +141,16 @@ const NavBar = () => {
                   setActiveLink(item.to);
                   setIsOpen(false);
                 }}
-                className={`font-medium ${
-                  activeLink === item.to ? "text-sky-300" : "text-white"
-                }`}
+                className={`font-medium ${activeLink === item.to ? "text-sky-300" : "text-white"
+                  }`}
               >
                 {item.label}
               </Link>
             ))}
             <div className="md:flex md:gap-4 font-medium flex gap-4">
-              {user ? (
+              {loading ? <div className="flex items-center justify-center">
+                <div className="w-6 h-6 border-4 border-white border-t-transparent rounded-full animate-spin" />
+              </div> : user ? (
                 <div className="mt-4 flex items-center justify-around w-screen md:hidden">
                   <span className="text-white">Hi, {user.firstName}</span>
                   <button

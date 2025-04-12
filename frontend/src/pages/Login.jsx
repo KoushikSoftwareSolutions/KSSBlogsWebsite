@@ -75,7 +75,6 @@ const Login = () => {
             Read. Learn. Stay ahead — with Koushik Software Solutions (KSS BLOGS).
           </h1>
 
-          {/* Email */}
           <div className="flex gap-2 mt-4 px-4 py-3 items-center bg-sky-100 rounded-lg w-full">
             <MdOutlineMailOutline className="size-6" />
             <input
@@ -87,7 +86,6 @@ const Login = () => {
             />
           </div>
 
-          {/* Password */}
           <div className="w-full flex flex-col items-end">
             <div className="flex gap-2 mt-4 px-4 py-3 items-center bg-sky-100 rounded-lg w-full">
               <MdLockOutline className="size-6" />

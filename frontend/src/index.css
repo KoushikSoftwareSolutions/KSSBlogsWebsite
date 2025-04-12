@@ -26,7 +26,7 @@
         opacity: 0;
       }
       to {
-        transform: translateX(0); /* <-- back to original */
+        transform: translateX(0); 
         opacity: 1;
       }
     }
@@ -41,7 +41,7 @@
         opacity: 0;
       }
       to {
-        transform: translateX(0); /* <-- back to original */
+        transform: translateX(0); 
         opacity: 1;
       }
     }
