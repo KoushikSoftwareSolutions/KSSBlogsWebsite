@@ -50,10 +50,10 @@ const NavBar = () => {
 
   const navItems = [
     { to: "/", label: "Home" },
-    { to: "/business", label: "Business" },
-    { to: "/tech", label: "Tech" },
-    { to: "/career", label: "Career" },
-    { to: "/job", label: "Jobs" },
+    { to: "/category/business", label: "Business" },
+    { to: "/category/tech", label: "Tech" },
+    { to: "/category/career", label: "Career" },
+    { to: "/category/job", label: "Jobs" },
   ];
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-gray-800 backdrop-blur-2xl">

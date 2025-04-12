@@ -10,6 +10,7 @@ const API = import.meta.env.VITE_API_BASE_URL;
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import SuccessMsg from "../components/SuccessMsg"; 
+import { Loading } from "../components/Loading";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -25,7 +26,7 @@ const Login = () => {
     setLoading(true)
     try {
       const res = await axios.post(
-        `${API}/api/user/profile/api/user/login`,
+        `${API}/api/user/login`,
         { email, password },
         { withCredentials: true }
       );
@@ -64,9 +65,7 @@ const Login = () => {
   return (
     <>
     {loading && (
-        <div className="flex items-center justify-center w-screen h-screen fixed z-50 bg-white">
-          <div className="w-6 h-6 border-4 border-black border-t-transparent rounded-full animate-spin" />
-        </div>
+        <Loading />
       )}
       {showToast && <SuccessMsg msg={errorMsg} status={isError} />}
       <div className="pt-20  bg-sky-100 h-screen flex justify-center items-center py-8">

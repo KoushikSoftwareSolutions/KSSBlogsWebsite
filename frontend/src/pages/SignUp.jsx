@@ -11,6 +11,7 @@ import { FcGoogle } from "react-icons/fc";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import SuccessMsg from "../components/SuccessMsg";
+import { Loading } from "../components/Loading";
 
 const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -29,7 +30,7 @@ const SignUp = () => {
     setLoading(true);
     try {
       const res = await axios.post(
-        `${API}/api/user/profile/api/user/signup`,
+        `${API}/api/user/signup`,
         {
           firstName,
           lastName,
@@ -64,16 +65,14 @@ const SignUp = () => {
         setShowSuccess(false);
       }, 3000);
     } finally {
-      setLoading(false); // Always stop loading
+      setLoading(false);
     }
   };
 
   return (
     <>
       {loading && (
-        <div className="flex items-center justify-center w-screen h-screen fixed z-50 bg-white">
-          <div className="w-6 h-6 border-4 border-black border-t-transparent rounded-full animate-spin" />
-        </div>
+        <Loading />
       )}
       {showSuccess && <SuccessMsg msg={errorMsg} status={isError} />}
       <div className="pt-20 max-[376px]:pt-50 bg-sky-100 h-screen flex justify-center items-center py-8">
