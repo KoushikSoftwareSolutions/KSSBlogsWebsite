@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+@layer theme, base, components, utilities;
+
+@layer utilities {
+    .animate-progress {
+        animation: progressBar 3s ease-out forwards;
+      }
+    
+      @keyframes progressBar {
+        0% {
+          width: 0%;
+        }
+        100% {
+          width: 100%;
+        }
+      }
+      
+    .animate-slide-right {
+      animation: slideRight 1s ease-out forwards;
+    }
+  
+    @keyframes slideRight {
+      from {
+        transform: translateX(-10%);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(0); /* <-- back to original */
+        opacity: 1;
+      }
+    }
+  
+    .animate-slide-left {
+      animation: slideLeft 1s ease-out forwards;
+    }
+  
+    @keyframes slideLeft {
+      from {
+        transform: translateX(20%);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(0); /* <-- back to original */
+        opacity: 1;
+      }
+    }
+    .animate-slide-down {
+        @apply animate-[slideDown_0.7s_ease-out];
+      }
+    
+      @keyframes slideDown {
+        0% {
+          opacity: 0;
+          transform: translateY(-10%);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+  }
+  
