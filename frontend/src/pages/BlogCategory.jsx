@@ -43,7 +43,7 @@ const BlogCategory = () => {
     };
     fetchData();
   }, [category]);
-  
+
 
   const formatDateTime = (isoDate) => {
     const date = new Date(isoDate);
@@ -58,34 +58,40 @@ const BlogCategory = () => {
       timeZone: 'Asia/Kolkata'
     }).format(date);
   };
-  
+
   return (
     <div>
       {loading && <Loading />}
-      <div className='pt-20 m-10 max-sm:mx-4'>
-        <div className='flex gap-4 items-end max-sm:flex-col max-sm:items-start'>
-          <h1 className='text-8xl max-sm:text-7xl text-sky-950'>
+      <div className='pt-20 m-10'>
+        <div className='flex items-end gap-4 max-md:flex-col max-md:items-start'>
+          <h1 className='md:text-8xl text-6xl text-sky-950'>
             {categoryTitles[category]?.title || "Blog"}
           </h1>
-          <p className='font-light italic text-sm text-sky-900'>
+          <p className='font-light italic md:text-sm text-xs text-sky-900'>
             -{categoryTitles[category]?.description || "Explore insightful articles."}
           </p>
         </div>
         {blog.length > 0 && (
-          <div className='mt-10 flex justify-around gap-20 flex-wrap'>
-            <Link to={`/blog/${blog[0]._id}`}>
-              <div className='max-w-3xl'>
-                <img src={blog[0].image} alt={blog[0].title} className='rounded-lg shadow-xl w-full' />
+          <div className='mt-8 flex gap-20 lg:flex-row flex-col'>
+          <Link to={`/blog/${blog[0]._id}`} className=''>
+              <div className=''>
+                <img
+                  src={blog[0].image}
+                  alt={blog[0].title}
+                  className='rounded-lg shadow-xl w-full object-cover'
+                />
                 <p className='text-gray-600 italic mt-2 text-xs'>{formatDateTime(blog[0].createdAt)}</p>
                 <h1 className='text-2xl mt-4 font-medium'>{blog[0].title}</h1>
                 <p className='text-sm'>{blog[0].shortDescription}</p>
               </div>
+
             </Link>
-            <div className='flex flex-col gap-4'>
+
+            <div className='flex flex-col gap-4 items-center'>
               {blog.slice(1, 6).map((data) => (
                 <Link key={data._id} to={`/blog/${data._id}`}>
-                  <div className='flex gap-4'>
-                    <img src={data.image} alt={data.title} className='w-40 h-24 object-cover rounded-lg' />
+                  <div className='flex gap-4 max-md:flex-col'>
+                    <img src={data.image} alt={data.title} className='w-40 h-24 max-md:w-full max-md:h-fit object-cover rounded-lg' />
                     <div>
                       <h1 className='text-lg font-medium max-sm:text-sm'>{data.title}</h1>
                       <p className='text-sm max-sm:text-xs'>{data.shortDescription}</p>
@@ -97,6 +103,7 @@ const BlogCategory = () => {
             </div>
           </div>
         )}
+
       </div>
     </div>
   )

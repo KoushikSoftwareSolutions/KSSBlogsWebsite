@@ -17,7 +17,7 @@ const Footer = () => {
 
   return (
     <footer className="bg-sky-950 text-white px-6 py-10">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between gap-10">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between gap-10 ">
         <div className="flex flex-col items-start md:w-2/3">
           <div className="flex items-center mb-4">
             <img src={logo} alt="Logo" className="w-16 h-16 mr-3" />
@@ -58,6 +58,9 @@ const Footer = () => {
             </div>
           </div>
         </div>
+      </div>
+      <div className="mt-10 border-t border-sky-800 pt-4 text-center text-sm text-gray-400">
+        © {new Date().getFullYear()} Koushik Software Solutions. All rights reserved.
       </div>
     </footer>
   );
